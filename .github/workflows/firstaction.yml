@@ -10,3 +10,9 @@ jobs:
         - name: using the echo command 
           run: echo "This is first job"
 
+        - name: list the dir
+          run: ls -la
+
+        - name: read the file 
+          run: cat README.md
+
