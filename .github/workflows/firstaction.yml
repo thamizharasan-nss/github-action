@@ -19,12 +19,20 @@ jobs:
         - name: read the file 
           run: cat README.md
 
+        - name: upload the artifacts 
+          uses: actions/upload-artifact@v4
+          with:
+            name: myartifact
+            path: ./README.md 
+
     second_job:
         needs: first_job
         runs-on: ubuntu-latest
         steps:
-        - name: using the github action
-          uses: actions/checkout@v6
+        - name: Download the artifacts 
+          uses: actions/download-artifact@v5
+          with:
+            name: myartifact
 
         - name: uisng the multiline command
           run: |
@@ -35,8 +43,8 @@ jobs:
         needs: second_job
         runs-on: ubuntu-latest
         steps: 
-        - name: checkout stage 
-          uses: actions/checkout@v6
+        - name: using the github action
+          uses: actions/checkout@v6 
 
         - name: change the permission
           run: chmod 777 sample.sh
