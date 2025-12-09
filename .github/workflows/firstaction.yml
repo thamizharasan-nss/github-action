@@ -19,3 +19,14 @@ jobs:
         - name: read the file 
           run: cat README.md
 
+    second_job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: uisng the multiline command
+          run: |
+            echo "This is second job"
+            ls -ltra 
+            cat README.md
+                  
+
+
