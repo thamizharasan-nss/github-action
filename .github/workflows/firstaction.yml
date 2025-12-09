@@ -35,6 +35,10 @@ jobs:
         steps: 
         - name: checkout stage 
           uses: actions/checkout@v6
+
+        - name: change the permission
+          run: chmod 777 sample.sh
+
         - name: running the shell script 
           run: ./sample.sh  
                       
