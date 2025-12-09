@@ -20,6 +20,7 @@ jobs:
           run: cat README.md
 
     second_job:
+        needs: first_job
         runs-on: ubuntu-latest
         steps:
         - name: using the github action
@@ -31,6 +32,7 @@ jobs:
             ls -ltra 
             cat README.md
     third_job:
+        needs: second_job
         runs-on: ubuntu-latest
         steps: 
         - name: checkout stage 
